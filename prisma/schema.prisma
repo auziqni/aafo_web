@@ -13,10 +13,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// buat nama pasien, umur pasien, dan alamat pasien, dan id pasien , data pengukuran pasien (sudut, berat depan, berat belakang)
-
 model Pasien {
-  id        Int      @id @default(autoincrement())
+  id        String      @id @unique
   nama      String
   umur      Int
   alamat    String
@@ -28,6 +26,7 @@ model Pengukuran {
   sudut        Int
   beratDepan   Int
   beratBelakang Int
-  pasienId     Int
+  timeStamp   DateTime @default(now())
+  pasienId     String
   pasien       Pasien   @relation(fields: [pasienId], references: [id])
 }
