@@ -17,17 +17,9 @@ import { twMerge } from "tailwind-merge";
 import { ReactNode } from "react";
 import { Pengukuran } from "@prisma/client";
 
-type Pengukuranb = {
-  id: number;
-  timeStamp: string;
-  sudut: number;
-  beratDepan: number;
-  beratBelakang: number;
-};
-
-export default function TablePengukuran({ data }: { data: Pengukuranb[] }) {
+export default function TablePengukuran({ data }: { data: PengukuranData[] }) {
   // create  column initial
-  const columnHelper = createMRTColumnHelper<Pengukuranb>();
+  const columnHelper = createMRTColumnHelper<PengukuranData>();
 
   const formatToIndonesiaTime = (isoString: string) => {
     const date = new Date(isoString);
@@ -100,7 +92,7 @@ export default function TablePengukuran({ data }: { data: Pengukuranb[] }) {
     filename: `Data Tiang ${formatDate(new Date())}`,
   });
 
-  const handleExportRows = (rows: MRT_Row<Pengukuranb>[]) => {
+  const handleExportRows = (rows: MRT_Row<PengukuranData>[]) => {
     const rowData = rows.map((row) => row.original);
     const csv = generateCsv(csvConfig)(rowData);
     download(csvConfig)(csv);

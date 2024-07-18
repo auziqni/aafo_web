@@ -8,3 +8,11 @@ type PasienDataTable = {
   berat: number;
   waktu: string;
 };
+
+type PengukuranData = {
+  id: number;
+  timeStamp: string;
+  sudut: number;
+  beratDepan: number;
+  beratBelakang: number;
+};
