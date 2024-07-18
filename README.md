@@ -52,3 +52,9 @@ pnpm add material-react-table @mui/material @mui/x-date-pickers @mui/icons-mater
 pnpm i export-to-csv @tanstack/react-query
 
 ```
+
+## firebase
+
+```bash
+pnpm install firebase react-firebase-hooks
+```
