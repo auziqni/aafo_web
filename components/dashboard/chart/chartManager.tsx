@@ -6,26 +6,31 @@ export default function ChartManager({
 }: {
   pengukuranPasien: PengukuranData[];
 }) {
+  // const dataset sclice last 5 data
+  const dataset = pengukuranPasien.slice(-5);
   return (
     <div className=" grid grid-cols-12">
       <ChartSingle
         className="col-span-4 "
         tittle="Sudut"
-        data={pengukuranPasien}
+        dataname="sudut"
+        dataset={dataset}
         min={-20}
         max={70}
       />
       <ChartSingle
         className="col-span-4"
         tittle="Berat Depan"
-        data={pengukuranPasien}
+        dataname="beratDepan"
+        dataset={dataset}
         min={100}
         max={4200}
       />
       <ChartSingle
         className="col-span-4"
         tittle="Berat Depan"
-        data={pengukuranPasien}
+        dataname="beratBelakang"
+        dataset={dataset}
         min={100}
         max={4200}
       />

@@ -58,3 +58,9 @@ pnpm i export-to-csv @tanstack/react-query
 ```bash
 pnpm install firebase react-firebase-hooks
 ```
+
+## chart - apex chart
+
+```bash
+pnpm install apexcharts react-apexcharts
+```
