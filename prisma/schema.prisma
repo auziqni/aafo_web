@@ -14,10 +14,12 @@ datasource db {
 }
 
 model Pasien {
-  id        String      @id @unique
+  norekam        String      @id @unique
   nama      String
-  umur      Int
-  alamat    String
+  ttl      String
+  telepon    String
+  tinggi    Int
+  berat    Int
   pengukuran Pengukuran[]
 }
 
@@ -28,5 +30,5 @@ model Pengukuran {
   beratBelakang Int
   timeStamp   DateTime @default(now())
   pasienId     String
-  pasien       Pasien   @relation(fields: [pasienId], references: [id])
+  pasien       Pasien   @relation(fields: [pasienId], references: [norekam])
 }

@@ -19,11 +19,11 @@ export default function TablePasien({ data }: { data: Pasien[] }) {
   const columnHelper = createMRTColumnHelper<Pasien>();
 
   const columns = [
-    columnHelper.accessor("id", {
+    columnHelper.accessor("norekam", {
       header: "ID",
       size: 50,
       Cell: ({ renderedCellValue, row }) => (
-        <Link href={`/tabel/${row.original.id}`} className="">
+        <Link href={`/tabel/${row.original.norekam}`} className="">
           <Button className=" w-16 text-purple-800 bg-blue-200 hover:bg-purple-800 hover:text-white ">
             {renderedCellValue}
           </Button>
@@ -34,11 +34,19 @@ export default function TablePasien({ data }: { data: Pasien[] }) {
       header: "Nama Pasien",
       size: 200,
     }),
-    columnHelper.accessor("umur", {
+    columnHelper.accessor("ttl", {
       header: "Umur",
       size: 120,
     }),
-    columnHelper.accessor("alamat", {
+    columnHelper.accessor("berat", {
+      header: "Alamat",
+      size: 200,
+    }),
+    columnHelper.accessor("tinggi", {
+      header: "Alamat",
+      size: 200,
+    }),
+    columnHelper.accessor("telepon", {
       header: "Alamat",
       size: 200,
     }),
