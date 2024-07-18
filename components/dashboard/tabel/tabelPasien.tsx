@@ -13,15 +13,38 @@ import { mkConfig, generateCsv, download } from "export-to-csv"; //or use your l
 import Link from "next/link";
 import { Pasien } from "@prisma/client";
 
-export default function TablePasien({ data }: { data: Pasien[] }) {
+export default function TablePasien({ data }: { data: PasienDataTable[] }) {
   // const data = dataTiang;
   // create  column initial
-  const columnHelper = createMRTColumnHelper<Pasien>();
+  const columnHelper = createMRTColumnHelper<PasienDataTable>();
+
+  const formatToIndonesiaTime = (isoString: string) => {
+    const date = new Date(isoString);
+    const options: Intl.DateTimeFormatOptions = {
+      timeZone: "Asia/Jakarta", // WIB (UTC+7)
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    };
+    const waktu: string = new Intl.DateTimeFormat("id-ID", options).format(
+      date
+    );
+
+    return waktu;
+  };
 
   const columns = [
+    columnHelper.accessor("id", {
+      header: "No",
+      size: 5,
+    }),
+
     columnHelper.accessor("norekam", {
-      header: "ID",
-      size: 50,
+      header: "No Rekam Medis",
+      size: 20,
       Cell: ({ renderedCellValue, row }) => (
         <Link href={`/tabel/${row.original.norekam}`} className="">
           <Button className=" w-16 text-purple-800 bg-blue-200 hover:bg-purple-800 hover:text-white ">
@@ -32,23 +55,28 @@ export default function TablePasien({ data }: { data: Pasien[] }) {
     }),
     columnHelper.accessor("nama", {
       header: "Nama Pasien",
-      size: 200,
+      size: 150,
+    }),
+    columnHelper.accessor("waktu", {
+      header: "Waktu",
+      size: 10,
+      Cell: ({ row }) => formatToIndonesiaTime(row.original.waktu),
     }),
     columnHelper.accessor("ttl", {
-      header: "Umur",
-      size: 120,
+      header: "TTL",
+      size: 10,
     }),
     columnHelper.accessor("berat", {
-      header: "Alamat",
-      size: 200,
+      header: "Berat",
+      size: 10,
     }),
     columnHelper.accessor("tinggi", {
-      header: "Alamat",
-      size: 200,
+      header: "Tinggi",
+      size: 10,
     }),
     columnHelper.accessor("telepon", {
-      header: "Alamat",
-      size: 200,
+      header: "Telepon",
+      size: 10,
     }),
   ];
 
@@ -71,7 +99,7 @@ export default function TablePasien({ data }: { data: Pasien[] }) {
     filename: `Data Tiang ${formatDate(new Date())}`,
   });
 
-  const handleExportRows = (rows: MRT_Row<Pasien>[]) => {
+  const handleExportRows = (rows: MRT_Row<PasienDataTable>[]) => {
     const rowData = rows.map((row) => row.original);
     const csv = generateCsv(csvConfig)(rowData);
     download(csvConfig)(csv);
