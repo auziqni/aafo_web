@@ -12,11 +12,15 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@hookform/resolvers": "^3.9.0",
     "@mui/icons-material": "^5.16.4",
     "@mui/material": "^5.16.4",
     "@mui/x-date-pickers": "^7.10.0",
     "@prisma/client": "^5.17.0",
     "@prisma/studio": "^0.502.0",
+    "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
     "@tanstack/react-query": "^5.51.5",
     "apexcharts": "^3.50.0",
     "class-variance-authority": "^0.7.0",
@@ -31,8 +35,10 @@
     "react-apexcharts": "^1.4.1",
     "react-dom": "^18",
     "react-firebase-hooks": "^5.1.1",
+    "react-hook-form": "^7.52.1",
     "tailwind-merge": "^2.4.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20",

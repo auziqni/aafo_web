@@ -23,6 +23,12 @@ mcu ketika memulai sesi harus membuat random code untuk memasukan pengukaran dal
 
 ```bash
 pnpm dlx shadcn-ui@latest init
+```
+
+### dlx
+
+```bash
+pnpm dlx shadcn-ui@latest add dialog form input
 
 ```
 
