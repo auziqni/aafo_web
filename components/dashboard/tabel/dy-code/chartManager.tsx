@@ -1,5 +1,5 @@
 import React from "react";
-import ChartSingle from "@/components/dashboard/chart/chartSingle";
+import ChartSingle from "./chartSingle";
 
 export default function ChartManager({
   pengukuranPasien,

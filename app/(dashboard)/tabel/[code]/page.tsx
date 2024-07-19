@@ -1,5 +1,5 @@
-import ChartManager from "@/components/dashboard/chart/chartManager";
-import EditPasien from "@/components/dashboard/popup/editPasien";
+import ChartManager from "@/components/dashboard/tabel/dy-code/chartManager";
+import EditPasien from "@/components/dashboard/tabel/dy-code/editPasien";
 import TablePengukuran from "@/components/dashboard/tabel/tabelPengukuran";
 // import { dataSensor } from "@/lib/mock/mockSensor";
 import { Pengukuran, PrismaClient } from "@prisma/client";

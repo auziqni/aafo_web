@@ -70,3 +70,9 @@ pnpm install firebase react-firebase-hooks
 ```bash
 pnpm install apexcharts react-apexcharts
 ```
+
+## clerk
+
+    ```bash
+    pnpm install @clerk/clerk-react @clerk/next
+    ```
