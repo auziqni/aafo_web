@@ -7,7 +7,7 @@ import { Edit } from "lucide-react";
 import { Suspense } from "react";
 const prisma = new PrismaClient();
 
-export const revalidate = 10; // Revalidate setiap 60 detik
+export const revalidate = 5; // Revalidate setiap 60 detik
 
 async function getDataPasien(code: string) {
   try {

@@ -42,7 +42,7 @@ export default function Navbar() {
 
           <li>
             <Link
-              href={"/sign-in"}
+              href={"/dashboard"}
               className="text-black py-3 px-7 bg-yellow-300 rounded-sm font-semibold"
             >
               {/* {isSignedIn ? "Dashboard" : "Masuk"} */}
