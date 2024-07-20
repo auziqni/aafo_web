@@ -7,6 +7,8 @@ import { time } from "console";
 import { Suspense } from "react";
 const prisma = new PrismaClient();
 
+export const revalidate = 10; // Revalidate setiap 60 detik
+
 async function getDataPasien() {
   // const semuapasien = await prisma.pasien.findMany({
   //   orderBy: {
