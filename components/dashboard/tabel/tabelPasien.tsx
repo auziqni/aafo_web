@@ -46,7 +46,7 @@ export default function TablePasien({ data }: { data: PasienDataTable[] }) {
       header: "No Rekam Medis",
       size: 20,
       Cell: ({ renderedCellValue, row }) => (
-        <Link href={`/tabel/${row.original.norekam}`} className="">
+        <Link href={`/pasien/${row.original.norekam}`} className="">
           <Button className=" w-16 text-purple-800 bg-blue-200 hover:bg-purple-800 hover:text-white ">
             {renderedCellValue}
           </Button>
