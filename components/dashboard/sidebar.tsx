@@ -61,7 +61,7 @@ export default function SidebarDashboard({
         </div>
         <Link href="/">
           <Image
-            src={`/logo.png`}
+            src={`/aafologo.jpg`}
             alt="Next.js logo"
             height={150}
             width={150}

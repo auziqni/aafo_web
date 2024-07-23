@@ -1,9 +1,18 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Polaberjalan() {
   return (
     <div className=" flex flex-col gap-3 px-3">
-      <div className=" w-40 h-40 bg-slate-500 mx-auto "></div>
+      <div className="   bg-slate-500 mx-auto ">
+        <Image
+          src="/home/gait.jpg"
+          alt="hero"
+          height={160}
+          width={480}
+          objectFit="contain"
+        />
+      </div>
       <p className="text-justify">
         Program Studi Teknik Biomedis ITERA memiliki visi keilmuan untuk
         berkontribusi pada pengembangan sumber daya manusia serta inovasi

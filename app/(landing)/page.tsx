@@ -1,65 +1,74 @@
 import Image from "next/image";
-
-interface CardLayananProps {
-  url: string;
-  title: string;
-  description: string;
-}
-
-const cardLayanan: CardLayananProps[] = [
-  {
-    url: "/icon/map.png",
-    title: "Lokasi",
-    description: "Pemantauan lokasi yang akurat menggunkana saltelit",
-  },
-  {
-    url: "/icon/tilt.png",
-    title: "Kemiringan",
-    description: "Pemantauan kemiringan tiang listrik secara akurat",
-  },
-  {
-    url: "/icon/pressure.png",
-    title: "Tekanan Udara ",
-    description: "Pemantauan tekanan udara  secara akurat",
-  },
-  {
-    url: "/icon/humidity.png",
-    title: "Kelembaban Tanah",
-    description: "Pemantauan kelembaban tanah  secara akurat",
-  },
-];
+import { Gauge, Shapes } from "lucide-react";
 
 export default function Home() {
   return (
     <main className="">
-      <div id="hero" className="relative h-screen w-screen">
-        <Image
-          src="https://tp.auziqni.com/aafo/heropic.png"
-          alt="hero"
-          layout="fill"
-          objectFit="cover"
-          priority
-        />
-        <div className="absolute top-1/3 ml-20 fle">
-          <h1 className="text-white text-6xl font-bold ">AAFO</h1>
-          <p className="text-white text-2xl font-semibold">
-            Aplikasi Alat Bantu Foot Orthosis
-          </p>
+      <div id="hero" className="relative h-screen w-screen  bg-white ">
+        <div className="relative h-5/6 bg-[#37517E] ">
+          <Image
+            src="/landing/hero.png"
+            alt="hero"
+            objectFit="contain"
+            width={600}
+            height={600}
+            priority
+            className="absolute top-1/2 -translate-y-1/2 right-20"
+          />
+          <div className="absolute top-1/3 ml-20 ">
+            <h1 className="text-white text-6xl font-bold ">AAFO</h1>
+            <p className="text-white text-2xl font-semibold">
+              Aplikasi Alat Bantu Foot Orthosis
+            </p>
+          </div>
         </div>
       </div>
 
-      <div id="layanan" className="flex flex-col  items-center mt-20 gap-10">
-        <h2 className=" font-bold text-4xl">Layanan</h2>
+      <div id="layanan" className="flex flex-col  items-center  gap-10  ">
+        <h2 className=" font-bold text-4xl text-[#37517E] ">Layanan</h2>
+        <p className="max-w-3xl text-center">
+          Layanan website AAFO memanfaatkan teknologi canggih seperti sensor,
+          dan analitik data untuk memberikan wawasan real-time dan rekomendasi
+          yang dapat ditindaklanjuti bagi fisioterapis dalam memantau pola
+          berjalan penderita hemiparesis. Layanan ini membantu fisioterapis
+          untuk meningkatkan efisiensi dalam memantatu pola berjalan dengan
+          memungkinkan pengambilan keputusan yang lebih tepat dan berbasis data
+          dalam rehabilitasi.
+        </p>
         <div className=" flex gap-5 ">
-          {cardLayanan.map((card, index) => (
-            <CardLayanan key={index} {...card} />
-          ))}
+          <div className="bg-white rounded-lg shadow-lg p-4 w-[244px] h-[330px] flex flex-col gap-8 items-center">
+            <Gauge className="h-24 w-24 mr-3" />
+            <div className="flex flex-col gap-1 items-center">
+              <h3 className="text-xl text-center font-semibold text-[#37517E]">
+                Sudut
+              </h3>
+              <p className=" text-center">blablaa</p>
+            </div>
+          </div>
+          <div className="bg-white rounded-lg shadow-lg p-4 w-[244px] h-[330px] flex flex-col gap-8 items-center">
+            <Shapes className="h-24 w-24 mr-3" />
+            <div className="flex flex-col gap-1 items-center">
+              <h3 className="text-xl text-center font-semibold text-[#37517E]">
+                Tekanan Depan
+              </h3>
+              <p className=" text-center">blablaa</p>
+            </div>
+          </div>
+          <div className="bg-white rounded-lg shadow-lg p-4 w-[244px] h-[330px] flex flex-col gap-8 items-center">
+            <Shapes className="h-24 w-24 mr-3" />
+            <div className="flex flex-col gap-1 items-center">
+              <h3 className="text-xl text-center font-semibold text-[#37517E]">
+                Tekanan Belakang
+              </h3>
+              <p className=" text-center">blablaa</p>
+            </div>
+          </div>
         </div>
       </div>
 
       <div
         id="tentang"
-        className="flex  relative w-full justify-center gap-10 my-20"
+        className="flex  relative w-full justify-center gap-10 my-20 "
       >
         <div className=" w-2/5 h-[503px] relative">
           <Image
@@ -71,7 +80,9 @@ export default function Home() {
           />
         </div>
         <div className=" w-2/5 h-[503px] my-10 ">
-          <h2 className="font-bold text-4xl mb-5 ">TENTANG KAMI</h2>
+          <h2 className="font-bold text-4xl mb-5 text-[#37517E]">
+            TENTANG KAMI
+          </h2>
           <p className=" text-justify">
             AAFO adalah teknologi biomedis yang digunakan unutk merehabilitasi
             kaki penderita stroke. aafo menggunakan teknologi sensor yang
@@ -109,14 +120,15 @@ export default function Home() {
   );
 }
 
-function CardLayanan({ url, title, description }: CardLayananProps) {
-  return (
-    <div className="bg-white rounded-lg shadow-lg p-4 w-[244px] h-[330px] flex flex-col gap-8 items-center">
-      <Image src={url} alt={title} width={120} height={120} />
-      <div className="flex flex-col gap-1 items-center">
-        <h3 className="text-xl text-center font-semibold">{title}</h3>
-        <p className=" text-center">{description}</p>
-      </div>
-    </div>
-  );
-}
+// function CardLayanan({ url, title, description, icon }: CardLayananProps) {
+//   return (
+//     <div className="bg-white rounded-lg shadow-lg p-4 w-[244px] h-[330px] flex flex-col gap-8 items-center">
+//       {/* <Image src={url} alt={title} width={120} height={120} /> */}
+//       <icon className={cn("h-5 w-5 mr-3", route.color)} />
+//       <div className="flex flex-col gap-1 items-center">
+//         <h3 className="text-xl text-center font-semibold">{title}</h3>
+//         <p className=" text-center">{description}</p>
+//       </div>
+//     </div>
+//   );
+// }

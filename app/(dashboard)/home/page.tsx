@@ -6,6 +6,7 @@ import About from "@/components/home/about";
 import DesignAlat from "@/components/home/designalat";
 import Hemiparesis from "@/components/home/hemiparesis";
 import PolaBerjalan from "@/components/home/polaberjalan";
+import Image from "next/image";
 
 interface SelectSectionProps {
   id: string;
@@ -42,7 +43,15 @@ export default function Home() {
       <div id="info" className="flex gap-6 m-6">
         <div className="flex-1 border flex flex-col gap-3 rounded-md">
           <h1 className=" font-bold p-3 text-lg">Teknik Biomedis Itera</h1>
-          <div className=" bg-slate-500 w-40  h-40 mx-auto "></div>
+          <div className=" bg-slate-500 w-40  h-40 mx-auto ">
+            <Image
+              src="/logobiomedis.png"
+              alt="hero"
+              height={160}
+              width={160}
+              priority
+            />
+          </div>
           <div className=" flex flex-col gap-2 text-justify px-3">
             <p>
               Program Studi Teknik Biomedis (PS BM) merupakan salah satu program

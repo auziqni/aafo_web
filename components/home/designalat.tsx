@@ -1,9 +1,12 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Designalat() {
   return (
     <div className=" flex flex-col gap-3 px-3">
-      <div className=" w-40 h-40 bg-slate-500 mx-auto "></div>
+      <div className="  bg-slate-500 mx-auto ">
+        <Image src="/home/aafo.jpg" alt="hero" height={160} width={220} />
+      </div>
       <p className="text-justify">
         Program Studi Teknik Biomedis (PS BM) merupakan salah satu program studi
         di Institut Teknologi Sumatera (ITERA) yang resmi dibuka pada tahun 2019

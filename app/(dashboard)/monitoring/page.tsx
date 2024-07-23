@@ -3,6 +3,7 @@ import React from "react";
 import { twMerge } from "tailwind-merge";
 import { useState, useEffect } from "react";
 import { db, ref, get, onValue, set } from "@/lib/firebase-config";
+import Image from "next/image";
 
 interface Data {
   sudut: number;
@@ -69,7 +70,9 @@ export default function Dashboard() {
           {" "}
           gait cycle analysis
         </h3>
-        <div className=" w-full h-40 bg-slate-300"></div>
+        <div className="relative w-full h-40 ">
+          <Image src="/home/gait.jpg" alt="hero" fill objectFit="contain" />
+        </div>
       </div>
     </div>
   );

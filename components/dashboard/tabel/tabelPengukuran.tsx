@@ -51,21 +51,21 @@ export default function TablePengukuran({ data }: { data: PengukuranData[] }) {
     }),
 
     columnHelper.accessor("sudut", {
-      header: "Tekanan Udara",
+      header: "Sudut",
       size: 200,
       muiTableBodyCellProps: {
         align: "center",
       },
     }),
     columnHelper.accessor("beratDepan", {
-      header: "Kelembaban Tanah",
+      header: "Tekanan Depan",
       size: 200,
       muiTableBodyCellProps: {
         align: "center",
       },
     }),
     columnHelper.accessor("beratBelakang", {
-      header: "Kemiringan Tiang",
+      header: "Tekanan Belakang",
       size: 200,
       muiTableBodyCellProps: {
         align: "center",

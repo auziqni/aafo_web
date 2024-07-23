@@ -1,9 +1,17 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Hemiparesis() {
   return (
     <div className=" flex flex-col gap-3 px-3">
-      <div className=" w-40 h-40 bg-slate-500 mx-auto "></div>
+      <div className=" w-40 h-40 bg-slate-500 mx-auto ">
+        <Image
+          src="/home/hemiparesis.jpg"
+          alt="hero"
+          height={160}
+          width={160}
+        />
+      </div>
       <p className="text-justify">
         Hemiparesis ialah kelemahan otot pada salah satu sisi tubuh, dimana pada
         pasien stroke 70-80% mengalami hemiparesis. Dari jumlah tersebut,
