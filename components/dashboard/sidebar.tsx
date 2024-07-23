@@ -2,30 +2,38 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { MapIcon, LayoutDashboard, ArrowDownUp, Settings } from "lucide-react";
+import { Nfc, Settings, Activity, Footprints, UserRound } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import { twMerge } from "tailwind-merge";
+import { use } from "react";
 // import { FreeCounter } from "@/components/free-counter";
 
 const routes = [
   {
-    label: "Dashboard",
-    icon: LayoutDashboard,
-    href: "/dashboard",
+    label: "Home",
+    icon: Footprints,
+    href: "/home",
     color: "text-sky-500",
   },
   {
-    label: "Tabel",
-    icon: MapIcon,
-    href: "/tabel",
+    label: "Monitoring",
+    icon: Activity,
+    href: "/monitoring",
     color: "text-violet-500",
   },
   {
-    label: "Setting",
-    icon: Settings,
-    href: "/setting",
+    label: "Pasien",
+    icon: UserRound,
+    href: "/pasien",
+    color: "text-amber-500",
+  },
+  {
+    label: "Contact Us",
+    icon: Nfc,
+    href: "/contact",
+    color: "white",
   },
 ];
 
