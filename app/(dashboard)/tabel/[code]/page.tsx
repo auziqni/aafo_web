@@ -61,8 +61,8 @@ export default async function Page({ params }: { params: { code: string } }) {
   );
   // const data = dataSensor.filter((sensor) => sensor.deviceCode === params.code);
   return (
-    <div className="  w-full  p-5">
-      <div id="pasien-info" className="relative bg-red-200">
+    <div className="  w-full  p-5 flex flex-col gap-10">
+      <div id="pasien-info" className="relative rounded-md shadow-md">
         <h2>
           No Rekam Medis : <span>{pasien.norekam}</span>
         </h2>
@@ -79,8 +79,12 @@ export default async function Page({ params }: { params: { code: string } }) {
           Berat :<span>{pasien.berat}</span>
         </p>
 
-        <EditPasien pasien={pasien} className="absolute top-0 right-0" />
+        <EditPasien
+          pasien={pasien}
+          className="absolute top-3 right-3 border p-3 rounded-lg bg-blue-200 hover:bg-blue-800 hover:text-white"
+        />
       </div>
+
       <Suspense fallback={<div>Loading </div>}>
         <ChartManager pengukuranPasien={pengukuranPasien} />
         <TablePengukuran data={pengukuranPasien} />

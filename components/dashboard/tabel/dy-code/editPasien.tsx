@@ -91,7 +91,7 @@ export default function EditPasien({
   return (
     <div className={twMerge("", className)}>
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger>Open</DialogTrigger>
+        <DialogTrigger className="font-semibold">EDIT</DialogTrigger>
         <DialogContent className="max-w-5xl ">
           <DialogHeader>
             <DialogTitle>

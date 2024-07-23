@@ -3,7 +3,7 @@ import React from "react";
 import { twMerge } from "tailwind-merge";
 import { useState, useEffect } from "react";
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, get, onValue } from "firebase/database";
+import { getDatabase, ref, get, onValue, set } from "firebase/database";
 
 // Konfigurasi Firebase Anda
 const firebaseConfig = {
@@ -26,6 +26,7 @@ interface Data {
   sudut: number;
   beratDepan: number;
   beratBelakang: number;
+  sessionStart: boolean;
 }
 
 export default function Dashboard() {
@@ -33,6 +34,7 @@ export default function Dashboard() {
     sudut: 0,
     beratDepan: 0,
     beratBelakang: 0,
+    sessionStart: false,
   });
 
   useEffect(() => {
@@ -45,6 +47,7 @@ export default function Dashboard() {
             sudut: fetchedData.sudut || 0,
             beratDepan: fetchedData.beratDepan || 0,
             beratBelakang: fetchedData.beratBelakang || 0,
+            sessionStart: fetchedData.sessionRead || false,
           });
         } else {
           console.error("No data available");
@@ -58,15 +61,22 @@ export default function Dashboard() {
     }
   }, []);
 
+  const handleToggle = () => {
+    set(ref(db, "data1/sessionRead"), !data?.sessionStart);
+  };
+
   if (!data) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="grid grid-cols-2 p-10 gap-10">
-      <CardShow title="kemiringan" value={data.sudut} className="col-span-2" />
+      <CardShow title="kemiringan" value={data.sudut} className="" />
       <CardShow title="tekanan depan" value={data.beratDepan} />
       <CardShow title="tekanan belakang" value={data.beratBelakang} />
+      <button className=" text-black" onClick={handleToggle}>
+        {data.sessionStart ? "session start" : "idle"}
+      </button>
     </div>
   );
 }

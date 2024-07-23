@@ -9,7 +9,7 @@ export default function ChartManager({
   // const dataset sclice last 5 data
   const dataset = pengukuranPasien.slice(-5);
   return (
-    <div className=" grid grid-cols-12">
+    <div className=" grid grid-cols-12 shadow-md">
       <ChartSingle
         className="col-span-4 "
         tittle="Sudut"
