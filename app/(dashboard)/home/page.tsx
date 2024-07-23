@@ -79,7 +79,7 @@ export default function Home() {
             <div className=" flex gap-5">
               <SelectSection
                 id="about"
-                tittle="Tentang AAFO"
+                tittle="Tim AAFO"
                 SelectedSection={selected}
                 onClick={() => setSelected("about")}
               />

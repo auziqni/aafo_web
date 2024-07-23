@@ -2,25 +2,7 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
 import { useState, useEffect } from "react";
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, get, onValue, set } from "firebase/database";
-
-// Konfigurasi Firebase Anda
-const firebaseConfig = {
-  apiKey: "AIzaSyDOW8QCsSR-OY46z7RNJmwvCDkln29FZRQ",
-  authDomain: "aafo-9b7b2.firebaseapp.com",
-  databaseURL:
-    "https://aafo-9b7b2-default-rtdb.asia-southeast1.firebasedatabase.app/",
-  projectId: "aafo-9b7b2",
-  storageBucket: "aafo-9b7b2.appspot.com",
-  messagingSenderId: "114532310730",
-  appId: "1:114532310730:web:6733764d75737fb8531e33",
-  measurementId: "G-68BYNQJZPL",
-};
-
-// Inisialisasi Firebase
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
+import { db, ref, get, onValue, set } from "@/lib/firebase-config";
 
 interface Data {
   sudut: number;
@@ -70,13 +52,25 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="grid grid-cols-2 p-10 gap-10">
-      <CardShow title="kemiringan" value={data.sudut} className="" />
-      <CardShow title="tekanan depan" value={data.beratDepan} />
-      <CardShow title="tekanan belakang" value={data.beratBelakang} />
-      <button className=" text-black" onClick={handleToggle}>
-        {data.sessionStart ? "session start" : "idle"}
+    <div className=" flex flex-col pt-10 ">
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 uppercase mx-10 rounded-md"
+        onClick={handleToggle}
+      >
+        start monitoring
       </button>
+      <div className="grid grid-cols-3  p-10 gap-10">
+        <CardShow title="Sudut (°)" value={data.sudut} className="" />
+        <CardShow title="Tekanan Depan  (N/m²)" value={data.beratDepan} />
+        <CardShow title="Tekanan Belakang (N/m²)" value={data.beratBelakang} />
+      </div>
+      <div className=" px-10 flex flex-col gap-5">
+        <h3 className=" capitalize font-bold text-center text-2xl">
+          {" "}
+          gait cycle analysis
+        </h3>
+        <div className=" w-full h-40 bg-slate-300"></div>
+      </div>
     </div>
   );
 }
@@ -93,12 +87,12 @@ function CardShow({
   return (
     <div
       className={twMerge(
-        "relative w-60 h-60  border-4 border-black flex justify-center items-center",
+        "relative w-full  aspect-square  flex justify-center p-5 border shadow-md rounded-md ",
         className
       )}
     >
-      <h3 className="absolute top-0">{title}</h3>
-      <h2 className="text-8xl">{value}</h2>
+      <h3 className=" mx-auto">{title}</h3>
+      <h2 className=" absolute top-1/2 -translate-y-1/2 text-8xl">{value}</h2>
     </div>
   );
 }
