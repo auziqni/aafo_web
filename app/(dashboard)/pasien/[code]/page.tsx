@@ -6,6 +6,7 @@ import { Pengukuran, PrismaClient } from "@prisma/client";
 import { Edit } from "lucide-react";
 import { Suspense } from "react";
 const prisma = new PrismaClient();
+import Image from "next/image";
 
 export const revalidate = 5; // Revalidate setiap 60 detik
 
@@ -79,7 +80,16 @@ export default async function Page({ params }: { params: { code: string } }) {
             id="pasienname"
             className="relative flex shadow-md col gap-6 p-6 rounded-xl border border-red-600"
           >
-            <div className="h-20 w-20 rounded-full bg-slate-300 self-center"></div>
+            <div className="h-20 w-20 rounded-full bg-slate-300 self-center overflow-clip border">
+              <Image
+                src="/user/holder.jpg"
+                alt="hero"
+                height={80}
+                width={80}
+                objectFit="contain"
+                priority
+              />
+            </div>
             <div className=" flex flex-col gap-3">
               <span className="">PASIEN</span>
               <h2 className="text-3xl">{pasien.nama}</h2>
@@ -117,22 +127,4 @@ function DetilPasien({ tittle, value }: { tittle: string; value: string }) {
       <h2 className="font-semibold">{value}</h2>
     </div>
   );
-}
-
-{
-  /* <h2>
-          No Rekam Medis : <span>{pasien.norekam}</span>
-        </h2>
-        <p>
-          Nama Pasien :<span>{pasien.nama}</span>
-        </p>
-        <p>
-          Tempat Tanggal Lahir :<span>{pasien.ttl}</span>
-        </p>
-        <p>
-          Tinggi :<span>{pasien.tinggi}</span>
-        </p>
-        <p>
-          Berat :<span>{pasien.berat}</span>
-        </p> */
 }

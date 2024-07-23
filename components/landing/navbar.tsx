@@ -2,10 +2,10 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-// import { useUser } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 
 export default function Navbar() {
-  //   const { isSignedIn, user, isLoaded } = useUser();
+  const { isSignedIn, user, isLoaded } = useUser();
   return (
     <nav className="relative h-[64px] bg-[#37517E] flex items-center justify-between px-20">
       <div id="logo" className="h-[55px] w-[213px] relative flex items-center ">
@@ -34,19 +34,18 @@ export default function Navbar() {
           <li>
             <a href="#tentang">Hubungi Kami</a>
           </li>
-          {/* {!isSignedIn && (
+          {!isSignedIn && (
             <li>
               <a href="/sign-up">Daftar</a>
             </li>
-          )} */}
+          )}
 
           <li>
             <Link
-              href={"/dashboard"}
+              href={"/home"}
               className="text-black py-3 px-7 bg-white rounded-sm font-semibold"
             >
-              {/* {isSignedIn ? "Dashboard" : "Masuk"} */}
-              Dashboard
+              {isSignedIn ? "Dashboard" : "Masuk"}
             </Link>
           </li>
         </ul>
