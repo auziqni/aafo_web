@@ -45,7 +45,7 @@ export default function Home() {
           <h1 className=" font-bold p-3 text-lg">Teknik Biomedis Itera</h1>
           <div className=" bg-slate-500 w-40  h-40 mx-auto ">
             <Image
-              src="/logobiomedis.png"
+              src="/logobiomedisfix.png"
               alt="hero"
               height={160}
               width={160}

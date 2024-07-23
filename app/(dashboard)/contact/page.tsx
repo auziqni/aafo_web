@@ -8,7 +8,7 @@ export default function Contact() {
         <div className="h-full w-full bg-sky-300 flex flex-col items-center gap-3 p-5 border border-slate-500 rounded-xl">
           <div className=" h-32 w-32 rounded-full relative overflow-clip">
             <Image
-              src={"/contact/lokasi.png"}
+              src={"/contact/lokasifix.png"}
               alt="hero"
               height={128}
               width={128}
@@ -24,7 +24,7 @@ export default function Contact() {
         <div className="h-full w-full bg-lime-300 flex flex-col items-center gap-3 p-5 border border-slate-500 rounded-xl">
           <div className="bg-slate-400 h-32 w-32 rounded-full relative overflow-clip">
             <Image
-              src={"/contact/phone.png"}
+              src={"/contact/phonefix.png"}
               alt="hero"
               height={128}
               width={128}
@@ -42,7 +42,7 @@ export default function Contact() {
         <div className="h-full w-full bg-rose-300 flex flex-col items-center gap-3 p-5 border border-slate-500 rounded-xl">
           <div className="bg-slate-400 h-32 w-32 rounded-full relative overflow-clip">
             <Image
-              src={"/contact/mail.png"}
+              src={"/contact/mailfix.png"}
               alt="hero"
               height={128}
               width={128}

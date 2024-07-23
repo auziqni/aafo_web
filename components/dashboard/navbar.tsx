@@ -7,7 +7,7 @@ export default function NavbarrDashboard() {
     <div className="bg-white shadow-lg text-black h-[64px] py-2 justify-between flex px-6 ">
       <div className="flex gap-3 ">
         <Image
-          src="/logoitera.jpg"
+          src="/logoiterafix.jpg"
           alt="hero"
           height={50}
           width={43}
@@ -15,7 +15,7 @@ export default function NavbarrDashboard() {
           priority
         />
         <Image
-          src="/logobiomedis.png"
+          src="/logobiomedisfix.png"
           alt="hero"
           height={50}
           width={50}
