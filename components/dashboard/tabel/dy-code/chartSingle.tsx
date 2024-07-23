@@ -11,7 +11,7 @@ const ApexChart = dynamic(() => import("react-apexcharts"), {
 
 const ChartLoading = () => (
   <div className="flex items-center justify-center h-64">
-    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+    <div className="animate-spin rounded-full h-12 w-full border-t-2 border-b-2 border-blue-500"></div>
   </div>
 );
 
@@ -22,6 +22,7 @@ export default function ChartSingle({
   min,
   max,
   className,
+  stylechart,
 }: {
   tittle: string;
   dataset: PengukuranData[];
@@ -29,6 +30,7 @@ export default function ChartSingle({
   min?: number;
   max?: number;
   className?: string;
+  stylechart?: string;
 }) {
   const series = [
     {
@@ -40,6 +42,7 @@ export default function ChartSingle({
   const options = {
     chart: {
       id: "basic-bar",
+      width: "100%",
     },
 
     xaxis: {
@@ -55,15 +58,20 @@ export default function ChartSingle({
     },
   };
   return (
-    <div className={twMerge("w-full flex justify-center h-[320px]", className)}>
-      {/* <h1 className=" text-center font-bold">Data TDS</h1> */}
+    <div
+      className={twMerge(
+        "relative w-full flex flex-col justify-center h-fit gap-5 shadow-md ",
+        className
+      )}
+    >
+      <h1 className=" font-bold text-xl p-3">Data TDS</h1>
       <Suspense fallback={<div>Loading...</div>}>
         <ApexChart
           options={options}
           series={series}
           type="line"
-          width="100%"
-          height={320}
+          height="100%"
+          width={stylechart || "100%"}
         />
       </Suspense>
     </div>

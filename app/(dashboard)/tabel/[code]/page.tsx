@@ -61,9 +61,66 @@ export default async function Page({ params }: { params: { code: string } }) {
   );
   // const data = dataSensor.filter((sensor) => sensor.deviceCode === params.code);
   return (
-    <div className="  w-full  p-5 flex flex-col gap-10">
-      <div id="pasien-info" className="relative rounded-md shadow-md">
-        <h2>
+    <div className="  w-full p-5 flex flex-col gap-10 ">
+      <div className=" flex flex-col items-end gap-2">
+        <div className=" w-full flex justify-between items-center">
+          <h1 className="text-4xl font-semibold"> MONITORING PASIEN</h1>
+          <EditPasien
+            pasien={pasien}
+            className=" w-fit p-3 rounded-lg bg-blue-200 hover:bg-blue-800 hover:text-white"
+          />
+        </div>
+
+        <div
+          id="pasien-info"
+          className="relative grid grid-cols-2 gap-12 rounded-md text-black w-full "
+        >
+          <div
+            id="pasienname"
+            className="relative flex shadow-md col gap-6 p-6 rounded-xl border border-red-600"
+          >
+            <div className="h-20 w-20 rounded-full bg-slate-300 self-center"></div>
+            <div className=" flex flex-col gap-3">
+              <span className="">PASIEN</span>
+              <h2 className="text-3xl">{pasien.nama}</h2>
+            </div>
+
+            <div className="absolute top-0 right-0 font-semibold m-3 text-xl">
+              {pasien.norekam}
+            </div>
+          </div>
+          <div
+            id="paseinDetil"
+            className="shadow-md flex flex-col p-6 gap-3 rounded-xl border border-red-600"
+          >
+            <DetilPasien tittle="Tanggal Rehab" value="2020-12-12" />
+            <DetilPasien tittle="Tempat Tanggal Lahir" value={pasien.ttl} />
+            <DetilPasien tittle="Tinggi" value={pasien.tinggi.toString()} />
+            <DetilPasien tittle="Berat" value={pasien.berat.toString()} />
+            <DetilPasien tittle="No Telepon" value={pasien.telepon} />
+          </div>
+        </div>
+      </div>
+
+      <Suspense fallback={<div>Loading </div>}>
+        <ChartManager pengukuranPasien={pengukuranPasien} />
+        <TablePengukuran data={pengukuranPasien} />
+      </Suspense>
+    </div>
+  );
+}
+
+function DetilPasien({ tittle, value }: { tittle: string; value: string }) {
+  return (
+    <div className="flex">
+      <span className=" w-48">{tittle}</span>
+      <h2 className="font-semibold">{value}</h2>
+    </div>
+  );
+}
+
+{
+  /* <h2>
           No Rekam Medis : <span>{pasien.norekam}</span>
         </h2>
         <p>
@@ -77,18 +134,5 @@ export default async function Page({ params }: { params: { code: string } }) {
         </p>
         <p>
           Berat :<span>{pasien.berat}</span>
-        </p>
-
-        <EditPasien
-          pasien={pasien}
-          className="absolute top-3 right-3 border p-3 rounded-lg bg-blue-200 hover:bg-blue-800 hover:text-white"
-        />
-      </div>
-
-      <Suspense fallback={<div>Loading </div>}>
-        <ChartManager pengukuranPasien={pengukuranPasien} />
-        <TablePengukuran data={pengukuranPasien} />
-      </Suspense>
-    </div>
-  );
+        </p> */
 }
