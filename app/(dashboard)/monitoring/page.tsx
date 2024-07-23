@@ -58,7 +58,7 @@ export default function Dashboard() {
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 uppercase mx-10 rounded-md"
         onClick={handleToggle}
       >
-        start monitoring
+        {data.sessionStart ? "Reading" : "Start Session"}
       </button>
       <div className="grid grid-cols-3  p-10 gap-10">
         <CardShow title="Sudut (°)" value={data.sudut} className="" />
