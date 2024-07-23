@@ -47,26 +47,31 @@ export default function SidebarDashboard({
     <div
       id="sidebar"
       className={twMerge(
-        "sticky top-0 h-screen min-w-60 z-10 bg-black lg:flex flex-col items-center gap-3",
+        "sticky top-0 h-screen min-w-60 z-10 bg-[#37517E] lg:flex flex-col items-center gap-3",
         className
       )}
     >
       <div
         id="sidebar-header"
-        className="w-[90%] h-48 bg-[#000000]  border-b-2 border-slate-400 relative"
+        className="w-[90%] py-5 flex flex-col gap-2 items-center  border-b-2 border-slate-400 relative"
       >
+        <div className=" text-white text-center">
+          <h1 className="font-bold">AAFO</h1>
+          <span>Active Ankle Foot Orthosis</span>
+        </div>
         <Link href="/">
           <Image
             src={`/logo.png`}
             alt="Next.js logo"
-            fill
+            height={150}
+            width={150}
             style={{ objectFit: "contain" }}
             priority
-            className="transform scale-75"
+            className=""
           />
         </Link>
       </div>
-      <div id="sidebar-content" className=" w-[90%] bg-black">
+      <div id="sidebar-content" className=" w-[90%] ">
         {routes.map((route) => (
           <Link
             key={route.href}

@@ -2,15 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get, onValue, set } from "firebase/database";
 // Konfigurasi Firebase Anda
 const firebaseConfig = {
-  apiKey: "AIzaSyDOW8QCsSR-OY46z7RNJmwvCDkln29FZRQ",
-  authDomain: "aafo-9b7b2.firebaseapp.com",
-  databaseURL:
-    "https://aafo-9b7b2-default-rtdb.asia-southeast1.firebasedatabase.app/",
-  projectId: "aafo-9b7b2",
-  storageBucket: "aafo-9b7b2.appspot.com",
-  messagingSenderId: "114532310730",
-  appId: "1:114532310730:web:6733764d75737fb8531e33",
-  measurementId: "G-68BYNQJZPL",
+  apiKey: process.env.NEXT_PUBLIC_APIKEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTHDOMAIN,
+  databaseURL: process.env.NEXT_PUBLIC_DATABASEURL,
+  projectId: process.env.NEXT_PUBLIC_PROJECTID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGEBUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGINGSENDERID,
+  appId: process.env.NEXT_PUBLIC_APPID,
+  measurementId: process.env.NEXT_PUBLIC_MEASUREMENTID,
 };
 
 // Inisialisasi Firebase
