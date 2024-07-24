@@ -11,25 +11,71 @@ import Image from "next/image";
 export const revalidate = 5; // Revalidate setiap 60 detik
 
 async function getDataPasien(code: string) {
-  try {
-    const pasien = await prisma.pasien.findUniqueOrThrow({
-      where: {
-        norekam: code,
+  const pasien = await prisma.pasien.findUniqueOrThrow({
+    where: {
+      norekam: code,
+    },
+    include: {
+      pengukuran: {
+        take: 1,
+        orderBy: {
+          timeStamp: "asc",
+        },
       },
-    });
+    },
+  });
 
-    return pasien;
-  } catch (e) {
-    const pasien = {
-      norekam: "Not Found",
-      nama: "ERROR 404",
-      ttl: "",
-      telepon: "",
-      tinggi: 0,
-      berat: 0,
-    };
-    return pasien;
-  }
+  const options: Intl.DateTimeFormatOptions = {
+    timeZone: "Asia/Jakarta", // WIB (UTC+7)
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  };
+  const waktu: string = new Intl.DateTimeFormat("id-ID", options).format(
+    pasien.pengukuran[0].timeStamp
+  );
+
+  const dataPenyesuaian = {
+    norekam: pasien.norekam,
+    nama: pasien.nama,
+    ttl: pasien.ttl,
+    telepon: pasien.telepon,
+    tinggi: pasien.tinggi,
+    berat: pasien.berat,
+    waktu: waktu,
+  };
+  return dataPenyesuaian;
+
+  // try {
+  //   const pasien = await prisma.pasien.findUniqueOrThrow({
+  //     where: {
+  //       norekam: code,
+  //     },
+  //     include: {
+  //       pengukuran: {
+  //         take: 1,
+  //         orderBy: {
+  //           timeStamp: "desc",
+  //         },
+  //       },
+  //     },
+  //   });
+
+  //   return pasien;
+  // } catch (e) {
+  //   const pasien = {
+  //     norekam: "Not Found",
+  //     nama: "ERROR 404",
+  //     ttl: "",
+  //     telepon: "",
+  //     tinggi: 0,
+  //     berat: 0,
+  //   };
+  //   return pasien;
+  // }
 }
 
 async function getDataPengukuran(code: string) {
@@ -103,7 +149,7 @@ export default async function Page({ params }: { params: { code: string } }) {
             id="paseinDetil"
             className="shadow-md flex flex-col p-6 gap-3 rounded-xl border border-red-600"
           >
-            <DetilPasien tittle="Tanggal Rehab" value="2020-12-12" />
+            <DetilPasien tittle="Tanggal Rehab" value={pasien.waktu} />
             <DetilPasien tittle="Tempat Tanggal Lahir" value={pasien.ttl} />
             <DetilPasien tittle="Tinggi" value={pasien.tinggi.toString()} />
             <DetilPasien tittle="Berat" value={pasien.berat.toString()} />

@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 import dynamic from "next/dynamic";
 
 // Gunakan dynamic import untuk menghindari masalah SSR
+import { ApexOptions } from "apexcharts";
 const ApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
   loading: () => <ChartLoading />,
@@ -36,10 +37,11 @@ export default function ChartSingle({
     {
       name: tittle,
       data: dataset.map((item) => switchDataName(item, dataname)),
+      type: "line",
     },
   ];
 
-  const options = {
+  const options: ApexOptions = {
     chart: {
       id: "basic-bar",
       width: "100%",
@@ -56,6 +58,12 @@ export default function ChartSingle({
       shared: false,
       intersect: true,
     },
+    markers: {
+      size: 6,
+    },
+    stroke: {
+      curve: "monotoneCubic",
+    },
   };
   return (
     <div
@@ -64,7 +72,7 @@ export default function ChartSingle({
         className
       )}
     >
-      <h1 className=" font-bold text-xl p-3">Data TDS</h1>
+      <h1 className=" font-bold text-xl p-3">{tittle}</h1>
       <Suspense fallback={<div>Loading...</div>}>
         <ApexChart
           options={options}

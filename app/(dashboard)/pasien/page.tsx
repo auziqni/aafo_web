@@ -19,6 +19,7 @@ async function getDataPasien() {
   const pasien = await prisma.pasien.findMany({
     include: {
       pengukuran: {
+        take: 1,
         orderBy: {
           timeStamp: "desc",
         },

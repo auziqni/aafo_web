@@ -17,7 +17,6 @@ type PengukuranData = {
   beratBelakang: number;
 };
 
-// ini kayanya ga di pake deh
 type PasienData = {
   norekam: string;
   nama: string;
@@ -25,4 +24,5 @@ type PasienData = {
   telepon: string;
   tinggi: number;
   berat: number;
+  waktu: stringS;
 };
