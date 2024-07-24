@@ -7,7 +7,7 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
       <Sidebar className="hidden lg:flex col-span-2 " />
       <div className="relative flex flex-col w-full col-span-12 lg:col-span-10">
         <Navbar />
-        <div className="relative">{children}</div>
+        {children}
       </div>
     </main>
   );

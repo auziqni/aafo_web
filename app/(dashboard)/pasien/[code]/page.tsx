@@ -1,9 +1,7 @@
 import ChartManager from "@/components/dashboard/tabel/dy-code/chartManager";
 import EditPasien from "@/components/dashboard/tabel/dy-code/editPasien";
 import TablePengukuran from "@/components/dashboard/tabel/tabelPengukuran";
-// import { dataSensor } from "@/lib/mock/mockSensor";
-import { Pengukuran, PrismaClient } from "@prisma/client";
-import { Edit } from "lucide-react";
+import { PrismaClient } from "@prisma/client";
 import { Suspense } from "react";
 const prisma = new PrismaClient();
 import Image from "next/image";
@@ -48,34 +46,6 @@ async function getDataPasien(code: string) {
     waktu: waktu,
   };
   return dataPenyesuaian;
-
-  // try {
-  //   const pasien = await prisma.pasien.findUniqueOrThrow({
-  //     where: {
-  //       norekam: code,
-  //     },
-  //     include: {
-  //       pengukuran: {
-  //         take: 1,
-  //         orderBy: {
-  //           timeStamp: "desc",
-  //         },
-  //       },
-  //     },
-  //   });
-
-  //   return pasien;
-  // } catch (e) {
-  //   const pasien = {
-  //     norekam: "Not Found",
-  //     nama: "ERROR 404",
-  //     ttl: "",
-  //     telepon: "",
-  //     tinggi: 0,
-  //     berat: 0,
-  //   };
-  //   return pasien;
-  // }
 }
 
 async function getDataPengukuran(code: string) {
@@ -106,7 +76,6 @@ export default async function Page({ params }: { params: { code: string } }) {
   const pengukuranPasien: PengukuranData[] = await getDataPengukuran(
     params.code
   );
-  // const data = dataSensor.filter((sensor) => sensor.deviceCode === params.code);
   return (
     <div className="  w-full p-5 flex flex-col gap-10 ">
       <div className=" flex flex-col items-end gap-2">
@@ -132,7 +101,6 @@ export default async function Page({ params }: { params: { code: string } }) {
                 alt="hero"
                 height={80}
                 width={80}
-                objectFit="contain"
                 priority
               />
             </div>

@@ -11,7 +11,6 @@ export default function NavbarrDashboard() {
           alt="hero"
           height={50}
           width={43}
-          objectFit="contain"
           priority
         />
         <Image
@@ -19,7 +18,6 @@ export default function NavbarrDashboard() {
           alt="hero"
           height={50}
           width={50}
-          objectFit="contain"
           priority
         />
       </div>

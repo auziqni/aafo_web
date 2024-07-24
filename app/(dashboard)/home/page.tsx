@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import About from "@/components/home/about";
 import DesignAlat from "@/components/home/designalat";

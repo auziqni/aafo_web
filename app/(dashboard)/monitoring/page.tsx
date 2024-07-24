@@ -2,7 +2,7 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
 import { useState, useEffect } from "react";
-import { db, ref, get, onValue, set } from "@/lib/firebase-config";
+import { db, ref, onValue, set } from "@/lib/firebase-config";
 import Image from "next/image";
 
 interface Data {
