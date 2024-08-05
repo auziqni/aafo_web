@@ -8,13 +8,9 @@ export default function Designalat() {
         <Image src="/home/aafo.jpg" alt="hero" height={160} width={220} />
       </div>
       <p className="text-justify">
-        Program Studi Teknik Biomedis (PS BM) merupakan salah satu program studi
-        di Institut Teknologi Sumatera (ITERA) yang resmi dibuka pada tahun 2019
-        dengan diterbitkannya SK Menteri Riset, Teknologi, dan Pendidikan Tinggi
-        Nomor 694/KPT/I/2019 tentang izin pembukaan Program Studi Teknik
-        Biomedis program sarjana pada Institut Teknologi Sumatera. Pendirian PS
-        BM akan mendukung visi dan misi ITERA dalam memenuhi ketersediaan sumber
-        daya manusia di bidang Teknik Biomedis khususnya di wilayah Sumatera.
+        Active ankle foot orthosis (AAFO) terdiri dari beberapa komponen yang
+        saling terintegrasi seperti motor servo, mESP Wmos lolin32 sebagai
+        kontroller, MPU6050, serta FSR
       </p>
     </div>
   );

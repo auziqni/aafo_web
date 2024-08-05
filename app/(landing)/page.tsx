@@ -18,7 +18,7 @@ export default function Home() {
           <div className="absolute top-1/3 ml-20 ">
             <h1 className="text-white text-6xl font-bold ">AAFO</h1>
             <p className="text-white text-2xl font-semibold">
-              Aplikasi Alat Bantu Foot Orthosis
+              Active Ankle Foot Orthosis
             </p>
           </div>
         </div>
@@ -27,13 +27,10 @@ export default function Home() {
       <div id="layanan" className="flex flex-col  items-center  gap-10  ">
         <h2 className=" font-bold text-4xl text-[#37517E] ">Layanan</h2>
         <p className="max-w-3xl text-center">
-          Layanan website AAFO memanfaatkan teknologi canggih seperti sensor,
-          dan analitik data untuk memberikan wawasan real-time dan rekomendasi
-          yang dapat ditindaklanjuti bagi fisioterapis dalam memantau pola
-          berjalan penderita hemiparesis. Layanan ini membantu fisioterapis
-          untuk meningkatkan efisiensi dalam memantatu pola berjalan dengan
-          memungkinkan pengambilan keputusan yang lebih tepat dan berbasis data
-          dalam rehabilitasi.
+          Layanan website AAFO memanfaatkan teknologi seperti sensor, dan
+          analitik data untuk memberikan hasil real time terhadap pengukuran
+          sudut, tekanan epan, dan tekanan belakang untuk memantau hasil
+          perkembangan penderita.
         </p>
         <div className=" flex gap-5 ">
           <div className="bg-white rounded-lg shadow-lg p-4 w-[244px] h-[330px] flex flex-col gap-8 items-center">
@@ -42,25 +39,27 @@ export default function Home() {
               <h3 className="text-xl text-center font-semibold text-[#37517E]">
                 Sudut
               </h3>
-              <p className=" text-center">blablaa</p>
+              <p className=" text-center">
+                Sudut dan Servo Angle diukur dalam satuan (°)
+              </p>
             </div>
           </div>
           <div className="bg-white rounded-lg shadow-lg p-4 w-[244px] h-[330px] flex flex-col gap-8 items-center">
             <Shapes className="h-24 w-24 mr-3" />
             <div className="flex flex-col gap-1 items-center">
               <h3 className="text-xl text-center font-semibold text-[#37517E]">
-                Tekanan Depan
+                Tekanan Depan (Toe)
               </h3>
-              <p className=" text-center">blablaa</p>
+              <p className=" text-center">Toe diukur dalam satuan (N/m²)</p>
             </div>
           </div>
           <div className="bg-white rounded-lg shadow-lg p-4 w-[244px] h-[330px] flex flex-col gap-8 items-center">
             <Shapes className="h-24 w-24 mr-3" />
             <div className="flex flex-col gap-1 items-center">
               <h3 className="text-xl text-center font-semibold text-[#37517E]">
-                Tekanan Belakang
+                Tekanan Belakang (Heel)
               </h3>
-              <p className=" text-center">blablaa</p>
+              <p className=" text-center">Heel diukur dalam satuan (N/m²)</p>
             </div>
           </div>
         </div>
@@ -84,27 +83,20 @@ export default function Home() {
             TENTANG KAMI
           </h2>
           <p className=" text-justify">
-            AAFO adalah teknologi biomedis yang digunakan unutk merehabilitasi
-            kaki penderita stroke. aafo menggunakan teknologi sensor yang
-            terpasang pada sepatu pasien untuk mengukur sudut kaki pasien saat
-            berjalan. Data yang dihasilkan oleh sensor akan diolah oleh sistem
-            cerdas untuk memberikan informasi yang berguna bagi dokter dan
-            pasien.
+            Active ankle foot orthosis merupakan sebuah alat bantu yang
+            dirancang untuk membantu individu dengan gangguan pergerakan kaki,
+            seperti penderita stroke yang mengalami hemiparesis
           </p>
           <p className=" text-justify">
-            AAFO adalah teknologi biomedis yang digunakan unutk merehabilitasi
-            kaki penderita stroke. aafo menggunakan teknologi sensor yang
-            terpasang pada sepatu pasien untuk mengukur sudut kaki pasien saat
-            berjalan. Data yang dihasilkan oleh sensor akan diolah oleh sistem
-            cerdas untuk memberikan informasi yang berguna bagi dokter dan
-            pasien.
+            Website ini membantu untuk memantau perkembangan sudut, servo angle,
+            tekanan depan serta tekanan belakang secara real time
           </p>
           <div className="grid grid-cols-2 px-10 mt-10">
             <div className="col-span-1">
               <h3 className="font-bold">Tim</h3>
-              <p className="hover:text-yellow-600">nama1</p>
-              <p className="hover:text-yellow-600">nama2</p>
-              <p className="hover:text-yellow-600">nama3</p>
+              <p className="hover:text-yellow-600">Dewi Nur Azizah</p>
+              <p className="hover:text-yellow-600">Satriani Syarma Fasih</p>
+              <p className="hover:text-yellow-600">Zahra Oktaviona</p>
             </div>
             <div className="col-span-1">
               <h3 className="font-bold">alamat</h3>

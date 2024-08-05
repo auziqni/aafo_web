@@ -14,20 +14,17 @@ export default function Polaberjalan() {
         />
       </div>
       <p className="text-justify">
-        Program Studi Teknik Biomedis ITERA memiliki visi keilmuan untuk
-        berkontribusi pada pengembangan sumber daya manusia serta inovasi
-        teknologi biomedis yang unggul di tingkat nasional, regional, dan
-        internasional dengan keunikan program studi yang meliputi bidang
-        peminatan Instrumentasi dan Pengolahan Citra Biomedis serta peminatan
-        Biomaterial dan Rekayasa Jaringan. Dari sisi sistem atau bahan yang
-        menjadi fokus kajian, baik dalam kelas maupun tugas akhir, kajian akan
-        berfokus pada sistem, perangkat, bahan, maupun kondisi infrastruktur
-        fasilitas kesehatan di Pulau Sumatera. Inovasi di bidang teknik biomedis
-        dengan memperhatikan potensi lokal sumber daya di wilayah Sumatera akan
-        menjadi keunggulan dari Program Studi Teknik Biomedis ITERA. Oleh karena
-        itu, lulusan program studi Teknik Biomedis ITERA diharapkan mampu
-        mengisi kebutuhan sumber daya manusia di wilayah Sumatera serta mampu
-        bersaing pada tingkat regional, nasional dan internasional.
+        Gait cycle adalah serangkaian pergerakan yang dilakukan oleh tubuh
+        manusia selama berjalan, yang mencakup semua tahapan mulai dari saat
+        satu kaki menyentuh tanah hingga kaki yang sama menyentuh tanah kembali.
+        Gait cycle terbagi menjadi dua fase utama: stance phase dan swing phase.
+        Stance phase terjadi ketika kaki berada di tanah, menopang berat badan,
+        dan terdiri dari sub-fase seperti heel strike (saat tumit menyentuh
+        tanah), foot flat (saat seluruh kaki berada di tanah), midstance (saat
+        tubuh melewati kaki yang berdiri), heel off (saat tumit mulai
+        terangkat), dan toe off (saat jari-jari kaki terakhir meninggalkan
+        tanah). Setelah itu, swing phase dimulai, di mana kaki bergerak maju
+        melalui udara untuk mempersiapkan siklus berikutnya.
       </p>
     </div>
   );
