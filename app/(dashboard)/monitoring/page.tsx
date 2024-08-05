@@ -9,6 +9,7 @@ interface Data {
   sudut: number;
   beratDepan: number;
   beratBelakang: number;
+  servoAngle: number;
   sessionStart: boolean;
 }
 
@@ -17,6 +18,7 @@ export default function Dashboard() {
     sudut: 0,
     beratDepan: 0,
     beratBelakang: 0,
+    servoAngle: 0,
     sessionStart: false,
   });
 
@@ -30,6 +32,7 @@ export default function Dashboard() {
             sudut: fetchedData.sudut || 0,
             beratDepan: fetchedData.beratDepan || 0,
             beratBelakang: fetchedData.beratBelakang || 0,
+            servoAngle: fetchedData.servoAngle || 0,
             sessionStart: fetchedData.sessionRead || false,
           });
         } else {
@@ -60,10 +63,11 @@ export default function Dashboard() {
       >
         {data.sessionStart ? "Reading" : "Start Session"}
       </button>
-      <div className="grid grid-cols-3  p-10 gap-10">
+      <div className="grid grid-cols-4  p-10 gap-10">
         <CardShow title="Sudut (°)" value={data.sudut} className="" />
-        <CardShow title="Tekanan Depan  (N/m²)" value={data.beratDepan} />
-        <CardShow title="Tekanan Belakang (N/m²)" value={data.beratBelakang} />
+        <CardShow title="Toe (N/m²)" value={data.beratDepan} />
+        <CardShow title="Heel (N/m²)" value={data.beratBelakang} />
+        <CardShow title="Servo Angle (°)" value={data.servoAngle} />
       </div>
       <div className=" px-10 flex flex-col gap-5">
         <h3 className=" capitalize font-bold text-center text-2xl">

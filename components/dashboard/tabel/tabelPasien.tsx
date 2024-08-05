@@ -44,10 +44,10 @@ export default function TablePasien({ data }: { data: PasienDataTable[] }) {
 
     columnHelper.accessor("norekam", {
       header: "No Rekam Medis",
-      size: 20,
+      size: 50,
       Cell: ({ renderedCellValue, row }) => (
         <Link href={`/pasien/${row.original.norekam}`} className="">
-          <Button className=" w-16 text-purple-800 bg-blue-200 hover:bg-purple-800 hover:text-white ">
+          <Button className=" text-purple-800 bg-blue-200 hover:bg-purple-800 hover:text-white ">
             {renderedCellValue}
           </Button>
         </Link>

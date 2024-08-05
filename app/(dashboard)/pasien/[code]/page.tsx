@@ -65,6 +65,7 @@ async function getDataPengukuran(code: string) {
       sudut: item.sudut,
       beratDepan: item.beratDepan,
       beratBelakang: item.beratBelakang,
+      servoAngle: item.servoAngle,
     })
   );
 

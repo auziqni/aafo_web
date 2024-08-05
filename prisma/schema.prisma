@@ -28,6 +28,7 @@ model Pengukuran {
   sudut        Int
   beratDepan   Int
   beratBelakang Int
+  servoAngle   Int
   timeStamp   DateTime @default(now())
   pasienId     String
   pasien       Pasien   @relation(fields: [pasienId], references: [norekam])

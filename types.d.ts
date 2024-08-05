@@ -15,6 +15,7 @@ type PengukuranData = {
   sudut: number;
   beratDepan: number;
   beratBelakang: number;
+  servoAngle: number;
 };
 
 type PasienData = {

@@ -8,14 +8,6 @@ import {
 import { Box, Button } from "@mui/material";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { mkConfig, generateCsv, download } from "export-to-csv"; //or use your library of choice here
-//   import { data, type Person } from './makeData';
-// import React from "react";
-// import { dataTiang } from "@/lib/mock/mockTiang";
-// import { dataSensor } from "@/lib/mock/mockSensor";
-import Link from "next/link";
-import { twMerge } from "tailwind-merge";
-import { ReactNode } from "react";
-import { Pengukuran } from "@prisma/client";
 
 export default function TablePengukuran({ data }: { data: PengukuranData[] }) {
   // create  column initial
@@ -58,14 +50,21 @@ export default function TablePengukuran({ data }: { data: PengukuranData[] }) {
       },
     }),
     columnHelper.accessor("beratDepan", {
-      header: "Tekanan Depan",
+      header: "Toe",
       size: 200,
       muiTableBodyCellProps: {
         align: "center",
       },
     }),
     columnHelper.accessor("beratBelakang", {
-      header: "Tekanan Belakang",
+      header: "Heel",
+      size: 200,
+      muiTableBodyCellProps: {
+        align: "center",
+      },
+    }),
+    columnHelper.accessor("servoAngle", {
+      header: "Servo Angle",
       size: 200,
       muiTableBodyCellProps: {
         align: "center",

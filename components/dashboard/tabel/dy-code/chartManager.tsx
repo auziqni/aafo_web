@@ -1,5 +1,6 @@
 import React from "react";
 import ChartSingle from "./chartSingle";
+import ChartDouble from "./chartDouble";
 
 export default function ChartManager({
   pengukuranPasien,
@@ -11,19 +12,18 @@ export default function ChartManager({
   return (
     <div className=" flex flex-col  gap-6">
       <div className=" relative w-full h-[320px] ">
-        <ChartSingle
+        <ChartDouble
           className=" w-full"
-          tittle="Sudut"
-          dataname="sudut"
+          tittle="Sudut dan Servo Angle"
           dataset={dataset}
-          min={-20}
-          max={70}
+          min={-45}
+          max={90}
         />
       </div>
       <div className="grid grid-cols-12 gap-6 ">
         <ChartSingle
           className="col-span-6  w-full"
-          tittle="Berat Depan"
+          tittle="Toe"
           dataname="beratDepan"
           dataset={dataset}
           min={100}
@@ -31,7 +31,7 @@ export default function ChartManager({
         />
         <ChartSingle
           className="col-span-6"
-          tittle="Berat Depan"
+          tittle="Heel"
           dataname="beratBelakang"
           dataset={dataset}
           min={100}

@@ -7,6 +7,7 @@ type reqstate = {
   sudut: number;
   beratDepan: number;
   beratBelakang: number;
+  servoAngle: number;
 };
 
 export async function POST(request: NextRequest) {
@@ -45,6 +46,7 @@ export async function POST(request: NextRequest) {
             sudut: body.sudut,
             beratDepan: body.beratDepan,
             beratBelakang: body.beratBelakang,
+            servoAngle: body.servoAngle,
             pasien: {
               connect: {
                 norekam: body.norekam,
@@ -85,6 +87,7 @@ const validatebody = (data: any): data is reqstate => {
     "sudut",
     "beratDepan",
     "beratBelakang",
+    "servoAngle",
   ];
   for (const field of requiredFields) {
     if (!(field in data)) {
@@ -93,16 +96,19 @@ const validatebody = (data: any): data is reqstate => {
   }
 
   if (typeof data.norekam !== "string") {
-    throw new Error("'norekam' harus berupa number");
+    throw new Error("'norekam' harus berupa string");
   }
   if (typeof data.sudut !== "number") {
-    throw new Error("'sudut' harus berupa string");
+    throw new Error("'sudut' harus berupa number");
   }
   if (typeof data.beratDepan !== "number") {
-    throw new Error("'beratDepan' harus berupa string");
+    throw new Error("'beratDepan' harus berupa number");
   }
   if (typeof data.beratBelakang !== "number") {
-    throw new Error("'beratBelakang' harus berupa string");
+    throw new Error("'beratBelakang' harus berupa number");
+  }
+  if (typeof data.servoAngle !== "number") {
+    throw new Error("'servoAngle' harus berupa number");
   }
 
   return true;
