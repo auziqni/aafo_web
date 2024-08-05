@@ -96,7 +96,7 @@ export default function TablePasien({ data }: { data: PasienDataTable[] }) {
     fieldSeparator: ",",
     decimalSeparator: ".",
     useKeysAsHeaders: true,
-    filename: `Data Tiang ${formatDate(new Date())}`,
+    filename: `Data Pasien ${formatDate(new Date())}`,
   });
 
   const handleExportRows = (rows: MRT_Row<PasienDataTable>[]) => {

@@ -88,7 +88,7 @@ export default function TablePengukuran({ data }: { data: PengukuranData[] }) {
     fieldSeparator: ",",
     decimalSeparator: ".",
     useKeysAsHeaders: true,
-    filename: `Data Tiang ${formatDate(new Date())}`,
+    filename: `Data Pengukuran ${formatDate(new Date())}`,
   });
 
   const handleExportRows = (rows: MRT_Row<PengukuranData>[]) => {
