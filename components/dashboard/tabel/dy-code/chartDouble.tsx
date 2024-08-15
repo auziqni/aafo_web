@@ -38,11 +38,11 @@ export default function ChartSingle({
       type: "line",
       color: "#FFC0CB",
     },
-    {
-      name: "Servo Angle",
-      data: dataset.map((item) => item.servoAngle),
-      type: "line",
-    },
+    // {
+    //   name: "Servo Angle",
+    //   data: dataset.map((item) => item.servoAngle),
+    //   type: "line",
+    // },
   ];
 
   const options: ApexOptions = {

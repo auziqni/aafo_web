@@ -14,7 +14,7 @@ export default function ChartManager({
       <div className=" relative w-full h-[320px] ">
         <ChartDouble
           className=" w-full"
-          tittle="Sudut dan Servo Angle"
+          tittle="Sudut"
           dataset={dataset}
           min={-45}
           max={90}

@@ -27,10 +27,13 @@ export default function Home() {
       <div id="layanan" className="flex flex-col  items-center  gap-10  ">
         <h2 className=" font-bold text-4xl text-[#37517E] ">Layanan</h2>
         <p className="max-w-3xl text-center">
-          Layanan website AAFO memanfaatkan teknologi seperti sensor, dan
-          analitik data untuk memberikan hasil real time terhadap pengukuran
-          sudut, tekanan epan, dan tekanan belakang untuk memantau hasil
-          perkembangan penderita.
+          Layanan website AAFO memanfaatkan teknologi canggih seperti sensero,
+          dan analitik data untuk memberikan wawasan real time dan rekomendasi
+          yang dapat ditindak lanjuti bagi fisioterapis dalam memantau pola
+          berjalan penderita hemiparesis. Layanan ini membantu fisioterapis
+          untuk meningkatkan efisiensi dalam memantau pola berjalan dengan
+          memungkinkan pengambilan keputusan yang lebih tepat dan berbasis data
+          dalam rehabilitasi.
         </p>
         <div className=" flex gap-5 ">
           <div className="bg-white rounded-lg shadow-lg p-4 w-[244px] h-[330px] flex flex-col gap-8 items-center">
@@ -83,9 +86,12 @@ export default function Home() {
             TENTANG KAMI
           </h2>
           <p className=" text-justify">
-            Active ankle foot orthosis merupakan sebuah alat bantu yang
-            dirancang untuk membantu individu dengan gangguan pergerakan kaki,
-            seperti penderita stroke yang mengalami hemiparesis
+            Active ankle foot orthosis ( AAFO ) merupakan sebuah alat bantu yang
+            ditancang untuk membantu individu dengan gangguan pergerakkan kaki
+            seperti penderita stroke yang mengalami hemiparesis. Website ini
+            membantu untuk memantau perkembangan sudut, tekanan depan ( Toe )
+            serta tekanan belakang ( Heel ) sesuai dengan pola berjalan secara
+            real time
           </p>
           <p className=" text-justify">
             Website ini membantu untuk memantau perkembangan sudut, servo angle,
