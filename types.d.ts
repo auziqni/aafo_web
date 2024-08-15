@@ -25,5 +25,12 @@ type PasienData = {
   telepon: string;
   tinggi: number;
   berat: number;
-  waktu: stringS;
+  waktu: string;
 };
+
+interface DataMonitoringFirebase {
+  sudut: number;
+  beratDepan: number;
+  beratBelakang: number;
+  sessionStart: boolean;
+}

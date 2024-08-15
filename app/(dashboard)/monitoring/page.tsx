@@ -4,26 +4,18 @@ import { twMerge } from "tailwind-merge";
 import { useState, useEffect } from "react";
 import { db, ref, onValue, set } from "@/lib/firebase-config";
 import Image from "next/image";
-
-interface Data {
-  sudut: number;
-  beratDepan: number;
-  beratBelakang: number;
-  servoAngle: number;
-  sessionStart: boolean;
-}
+import StartSession from "@/components/dashboard/monitoring/startSession";
 
 export default function Dashboard() {
-  const [data, setData] = useState<Data | null>({
+  const [data, setData] = useState<DataMonitoringFirebase | null>({
     sudut: 0,
     beratDepan: 0,
     beratBelakang: 0,
-    servoAngle: 0,
     sessionStart: false,
   });
 
   useEffect(() => {
-    const dataRef = ref(db, "data1"); // Ganti dengan path data yang benar
+    const dataRef = ref(db, "dataNew"); // Ganti dengan path data yang benar
     try {
       const unsubscribe = onValue(dataRef, (snapshot) => {
         if (snapshot.exists()) {
@@ -32,8 +24,8 @@ export default function Dashboard() {
             sudut: fetchedData.sudut || 0,
             beratDepan: fetchedData.beratDepan || 0,
             beratBelakang: fetchedData.beratBelakang || 0,
-            servoAngle: fetchedData.servoAngle || 0,
-            sessionStart: fetchedData.sessionRead || false,
+            // servoAngle: fetchedData.servoAngle || 0,
+            sessionStart: fetchedData.sessionStart || false,
           });
         } else {
           console.error("No data available");
@@ -48,7 +40,7 @@ export default function Dashboard() {
   }, []);
 
   const handleToggle = () => {
-    set(ref(db, "data1/sessionRead"), !data?.sessionStart);
+    set(ref(db, "dataNew/sessionStart"), !data?.sessionStart);
   };
 
   if (!data) {
@@ -57,17 +49,17 @@ export default function Dashboard() {
 
   return (
     <div className=" flex flex-col pt-10 ">
-      <button
+      {/* <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 uppercase mx-10 rounded-md"
         onClick={handleToggle}
       >
         {data.sessionStart ? "Reading" : "Start Session"}
-      </button>
-      <div className="grid grid-cols-4  p-10 gap-10">
+      </button> */}
+      <StartSession data={data} />
+      <div className="grid grid-cols-3  p-10 gap-10">
         <CardShow title="Sudut (°)" value={data.sudut} className="" />
         <CardShow title="Toe (N/m²)" value={data.beratDepan} />
         <CardShow title="Heel (N/m²)" value={data.beratBelakang} />
-        <CardShow title="Servo Angle (°)" value={data.servoAngle} />
       </div>
       <div className=" px-10 flex flex-col gap-5">
         <h3 className=" capitalize font-bold text-center text-2xl">
