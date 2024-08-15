@@ -27,7 +27,7 @@ interface dataCreateMany {
 
 export default function StartSession({
   data,
-  times = 5,
+  times = 20,
   interval = 1000,
 }: {
   data: DataMonitoringFirebase;
@@ -71,7 +71,7 @@ export default function StartSession({
     }
 
     if (isDone) {
-      WriteData({ pasien: pasien, datas: datas });
+      WriteData({ pasien: pasien, datas: datas, setIsLoading });
       setIsDone(false);
     }
 
@@ -82,11 +82,7 @@ export default function StartSession({
         clearInterval(intervalId);
       }
     };
-  }, [data, pasien, datas, isLoading, times, interval, isDone]);
-
-  // useEffect(() => {
-
-  // }, [isDone]);
+  }, [isLoading, data, pasien, datas, times, interval, isDone]);
 
   const addData = (newData: DataRead) => {
     setDatas((prevDatas) => {
@@ -103,6 +99,7 @@ export default function StartSession({
   const handleStartSession = async () => {
     setDatas([]);
     setIsDone(false);
+    setProgress(0);
     set(ref(db, "dataNew/sessionStart"), true);
   };
 
@@ -122,19 +119,6 @@ export default function StartSession({
         <Progress value={progress} className="w-[90%] mx-auto border-black" />
         {progress}%
       </div>
-      {/* <div className="font-black text-xl">{datas.length}</div>
-      {datas && (
-        <ul>
-          {datas.map((data, index) => (
-            <li key={index}>
-              <p>{data.time.toISOString()}</p>
-              <p>Sudut: {data.sudut}</p>
-              <p>Berat Depan: {data.beratDepan}</p>
-              <p>Berat Belakang: {data.beratBelakang}</p>
-            </li>
-          ))}
-        </ul>
-      )} */}
     </div>
   );
 }
@@ -142,9 +126,11 @@ export default function StartSession({
 async function WriteData({
   pasien,
   datas,
+  setIsLoading,
 }: {
   pasien: PasienData | null;
   datas: DataRead[];
+  setIsLoading: (loading: loadingProps) => void;
 }) {
   const dataPengukuran: dataCreateMany[] = [];
   // const datakkk: Pengukuran[] = [];
@@ -160,6 +146,8 @@ async function WriteData({
     });
   });
 
+  setIsLoading({ state: false, message: "Menyimpan data ke database" });
+
   console.log(dataPengukuran);
   try {
     await fetch("/api/createmanypengukuran", {
@@ -169,5 +157,8 @@ async function WriteData({
       },
       body: JSON.stringify(dataPengukuran),
     });
-  } catch (error) {}
+    setIsLoading({ state: false, message: "Data berhasil disimpan" });
+  } catch (error) {
+    setIsLoading({ state: false, message: "error" });
+  }
 }
