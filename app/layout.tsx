@@ -8,6 +8,8 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +26,22 @@ export default function RootLayout({
   return (
     <ClerkProvider afterSignOutUrl={"/"} signInUrl="">
       <html lang="en" suppressHydrationWarning>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          {children}
+          <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Bounce}
+          />
+        </body>
       </html>
     </ClerkProvider>
   );

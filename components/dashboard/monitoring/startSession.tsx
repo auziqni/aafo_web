@@ -27,7 +27,7 @@ interface dataCreateMany {
 
 export default function StartSession({
   data,
-  times = 20,
+  times = 5,
   interval = 1000,
 }: {
   data: DataMonitoringFirebase;

@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
               norekam: body.norekam,
             },
           },
-          timeStamp: "2023-08-05T15:08:50.266Z",
+          timeStamp: new Date(),
           sudut: 0,
           beratDepan: 0,
           beratBelakang: 0,

@@ -20,10 +20,10 @@ export async function POST(request: NextRequest) {
       data: body,
     });
 
-    console.log("Data berhasil ditambahkan");
-    return NextResponse.json({ status: 200, message: "good" });
+    // console.log("Data berhasil ditambahkan");
+    return NextResponse.json({ message: "good" }, { status: 200 });
   } catch (error) {
-    console.error("Error creating data:", error);
+    // console.error("Error creating data:", error);
     return NextResponse.json(
       {
         data_bermasalah: error instanceof Error ? error.message : String(error),

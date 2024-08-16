@@ -2,9 +2,15 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
 import { useState, useEffect } from "react";
-import { db, ref, onValue, set } from "@/lib/firebase-config";
+import { db, ref, onValue, set, get } from "@/lib/firebase-config";
 import Image from "next/image";
-import StartSession from "@/components/dashboard/monitoring/startSession";
+import StartSession from "@/components/dashboard/monitoring/startNewSession";
+import { Settings } from "lucide-react";
+
+interface Settings {
+  intervalTake: number;
+  totalTake: number;
+}
 
 export default function Dashboard() {
   const [data, setData] = useState<DataMonitoringFirebase | null>({
@@ -13,10 +19,32 @@ export default function Dashboard() {
     beratBelakang: 0,
     sessionStart: false,
   });
+  const [settings, setSettings] = useState<Settings>({
+    intervalTake: 1000,
+    totalTake: 5,
+  });
+
+  const GetSetting = async () => {
+    const getdata = await get(ref(db, "settings"));
+    if (getdata.exists()) {
+      const data: Settings = {
+        intervalTake: getdata.val().intervalTake,
+        totalTake: getdata.val().totalTake,
+      };
+      setSettings(data);
+    } else {
+      console.log("No data available");
+      return {
+        intervalTake: 1000,
+        totalTake: 5,
+      };
+    }
+  };
 
   useEffect(() => {
     const dataRef = ref(db, "dataNew"); // Ganti dengan path data yang benar
     try {
+      GetSetting();
       const unsubscribe = onValue(dataRef, (snapshot) => {
         if (snapshot.exists()) {
           const fetchedData = snapshot.val();
@@ -39,23 +67,16 @@ export default function Dashboard() {
     }
   }, []);
 
-  const handleToggle = () => {
-    set(ref(db, "dataNew/sessionStart"), !data?.sessionStart);
-  };
-
   if (!data) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className=" flex flex-col pt-10 ">
-      {/* <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 uppercase mx-10 rounded-md"
-        onClick={handleToggle}
-      >
-        {data.sessionStart ? "Reading" : "Start Session"}
-      </button> */}
-      <StartSession data={data} />
+      <StartSession
+        times={settings.totalTake}
+        interval={settings.intervalTake}
+      />
       <div className="grid grid-cols-3  p-10 gap-10">
         <CardShow title="Sudut (°)" value={data.sudut} className="" />
         <CardShow title="Toe (N/m²)" value={data.beratDepan} />
