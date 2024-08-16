@@ -5,6 +5,7 @@ import { PrismaClient } from "@prisma/client";
 import { Suspense } from "react";
 const prisma = new PrismaClient();
 import Image from "next/image";
+import DeletePasien from "@/components/dashboard/tabel/dy-code/deletePasien";
 
 export const revalidate = 5; // Revalidate setiap 60 detik
 
@@ -82,10 +83,16 @@ export default async function Page({ params }: { params: { code: string } }) {
       <div className=" flex flex-col items-end gap-2">
         <div className=" w-full flex justify-between items-center">
           <h1 className="text-4xl font-semibold"> MONITORING PASIEN</h1>
-          <EditPasien
-            pasien={pasien}
-            className=" w-fit p-3 rounded-lg bg-blue-200 hover:bg-blue-800 hover:text-white"
-          />
+          <div className=" flex gap-3">
+            <DeletePasien
+              pasien={pasien}
+              className=" w-fit p-3 rounded-lg bg-red-200 hover:bg-red-800 hover:text-white"
+            />
+            <EditPasien
+              pasien={pasien}
+              className=" w-fit p-3 rounded-lg bg-blue-200 hover:bg-blue-800 hover:text-white"
+            />
+          </div>
         </div>
 
         <div
