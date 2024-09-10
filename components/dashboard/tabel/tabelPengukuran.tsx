@@ -63,13 +63,6 @@ export default function TablePengukuran({ data }: { data: PengukuranData[] }) {
         align: "center",
       },
     }),
-    columnHelper.accessor("servoAngle", {
-      header: "Servo Angle",
-      size: 200,
-      muiTableBodyCellProps: {
-        align: "center",
-      },
-    }),
   ];
 
   // create config for export csv

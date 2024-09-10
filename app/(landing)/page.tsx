@@ -27,7 +27,7 @@ export default function Home() {
       <div id="layanan" className="flex flex-col  items-center  gap-10  ">
         <h2 className=" font-bold text-4xl text-[#37517E] ">Layanan</h2>
         <p className="max-w-3xl text-center">
-          Layanan website AAFO memanfaatkan teknologi canggih seperti sensero,
+          Layanan website AAFO memanfaatkan teknologi canggih seperti sensor,
           dan analitik data untuk memberikan wawasan real time dan rekomendasi
           yang dapat ditindak lanjuti bagi fisioterapis dalam memantau pola
           berjalan penderita hemiparesis. Layanan ini membantu fisioterapis
@@ -86,16 +86,16 @@ export default function Home() {
             TENTANG KAMI
           </h2>
           <p className=" text-justify">
-            Active ankle foot orthosis ( AAFO ) merupakan sebuah alat bantu yang
+            Active ankle foot orthosis (AAFO) merupakan sebuah alat bantu yang
             ditancang untuk membantu individu dengan gangguan pergerakkan kaki
             seperti penderita stroke yang mengalami hemiparesis. Website ini
-            membantu untuk memantau perkembangan sudut, tekanan depan ( Toe )
-            serta tekanan belakang ( Heel ) sesuai dengan pola berjalan secara
+            membantu untuk memantau perkembangan sudut, tekanan depan (Toe)
+            serta tekanan belakang (Heel) sesuai dengan pola berjalan secara
             real time
           </p>
           <p className=" text-justify">
-            Website ini membantu untuk memantau perkembangan sudut, servo angle,
-            tekanan depan serta tekanan belakang secara real time
+            Website ini membantu untuk memantau perkembangan sudut, tekanan
+            depan serta tekanan belakang secara real time
           </p>
           <div className="grid grid-cols-2 px-10 mt-10">
             <div className="col-span-1">

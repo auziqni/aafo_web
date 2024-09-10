@@ -28,6 +28,7 @@ export default function ChartManager({
         dataset={dataset}
         min={-45}
         max={90}
+        suffix="°"
       />
       <ChartSingle
         className="col-span-6  w-full"
@@ -36,6 +37,7 @@ export default function ChartManager({
         dataset={dataset}
         min={100}
         max={2985}
+        suffix=" N/m²"
       />
       <ChartSingle
         className="col-span-6"
@@ -44,6 +46,7 @@ export default function ChartManager({
         dataset={dataset}
         min={100}
         max={3271}
+        suffix=" N/m²"
       />
       {/* </div> */}
     </div>

@@ -24,6 +24,7 @@ export default function ChartSingle({
   max,
   className,
   stylechart,
+  suffix,
 }: {
   tittle: string;
   dataset: PengukuranData[];
@@ -32,6 +33,7 @@ export default function ChartSingle({
   max?: number;
   className?: string;
   stylechart?: string;
+  suffix?: string;
 }) {
   const series = [
     {
@@ -49,10 +51,20 @@ export default function ChartSingle({
 
     xaxis: {
       categories: dataset.map((item) => formatToIndonesiaTime(item.timeStamp)),
+      labels: {
+        formatter: function (value) {
+          return value;
+        },
+      },
     },
     yaxis: {
       min: min,
       max: max,
+      labels: {
+        formatter: function (value) {
+          return value.toString() + (suffix || "");
+        },
+      },
     },
     tooltip: {
       shared: false,
