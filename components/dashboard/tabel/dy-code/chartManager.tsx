@@ -26,8 +26,8 @@ export default function ChartManager({
         tittle="Sudut"
         dataname="sudut"
         dataset={dataset}
-        min={100}
-        max={4200}
+        min={-45}
+        max={90}
       />
       <ChartSingle
         className="col-span-6  w-full"
@@ -35,7 +35,7 @@ export default function ChartManager({
         dataname="beratDepan"
         dataset={dataset}
         min={100}
-        max={4200}
+        max={2985}
       />
       <ChartSingle
         className="col-span-6"
@@ -43,7 +43,7 @@ export default function ChartManager({
         dataname="beratBelakang"
         dataset={dataset}
         min={100}
-        max={4200}
+        max={3271}
       />
       {/* </div> */}
     </div>
