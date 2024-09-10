@@ -78,7 +78,7 @@ export default function ChartSingle({
           options={options}
           series={series}
           type="line"
-          height="100%"
+          height="150%"
           width={stylechart || "100%"}
         />
       </Suspense>
@@ -103,9 +103,9 @@ const formatToIndonesiaTime = (isoString: string) => {
   const date = new Date(isoString);
   const options: Intl.DateTimeFormatOptions = {
     timeZone: "Asia/Jakarta", // WIB (UTC+7)
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
+    // day: "2-digit",
+    // month: "2-digit",
+    // year: "numeric",
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",

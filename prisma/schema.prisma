@@ -18,17 +18,17 @@ model Pasien {
   nama      String
   ttl      String
   telepon    String
-  tinggi    Int
-  berat    Int
+  tinggi    Float
+  berat    Float
   pengukuran Pengukuran[]
 }
 
 model Pengukuran {
   id           Int      @id @default(autoincrement())
-  sudut        Int
-  beratDepan   Int
-  beratBelakang Int
-  servoAngle   Int
+  sudut        Float
+  beratDepan   Float
+  beratBelakang Float
+  servoAngle   Float
   timeStamp   DateTime @default(now())
   pasienId     String
   pasien       Pasien   @relation(fields: [pasienId], references: [norekam])

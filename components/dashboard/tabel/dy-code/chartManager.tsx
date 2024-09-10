@@ -8,10 +8,10 @@ export default function ChartManager({
   pengukuranPasien: PengukuranData[];
 }) {
   // const dataset sclice last 5 data
-  const dataset = pengukuranPasien.slice(-5);
+  const dataset = pengukuranPasien.slice(-300);
   return (
     <div className=" flex flex-col  gap-6">
-      <div className=" relative w-full h-[320px] ">
+      {/* <div className=" relative w-full h-[320px] ">
         <ChartDouble
           className=" w-full"
           tittle="Sudut"
@@ -19,25 +19,33 @@ export default function ChartManager({
           min={-45}
           max={90}
         />
-      </div>
-      <div className="grid grid-cols-12 gap-6 ">
-        <ChartSingle
-          className="col-span-6  w-full"
-          tittle="Toe"
-          dataname="beratDepan"
-          dataset={dataset}
-          min={100}
-          max={4200}
-        />
-        <ChartSingle
-          className="col-span-6"
-          tittle="Heel"
-          dataname="beratBelakang"
-          dataset={dataset}
-          min={100}
-          max={4200}
-        />
-      </div>
+      </div> */}
+      {/* <div className="grid grid-cols-12 gap-6 "> */}
+      <ChartSingle
+        className="col-span-6  w-full"
+        tittle="Sudut"
+        dataname="sudut"
+        dataset={dataset}
+        min={100}
+        max={4200}
+      />
+      <ChartSingle
+        className="col-span-6  w-full"
+        tittle="Toe"
+        dataname="beratDepan"
+        dataset={dataset}
+        min={100}
+        max={4200}
+      />
+      <ChartSingle
+        className="col-span-6"
+        tittle="Heel"
+        dataname="beratBelakang"
+        dataset={dataset}
+        min={100}
+        max={4200}
+      />
+      {/* </div> */}
     </div>
   );
 }

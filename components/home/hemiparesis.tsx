@@ -6,7 +6,7 @@ export default function Hemiparesis() {
     <div className=" flex flex-col gap-3 px-3">
       <div className=" w-40 h-40 bg-slate-500 mx-auto ">
         <Image
-          src="/home/hemiparesisfix.jpg"
+          src="/home/hemiparesisfixbanget.jpg"
           alt="hero"
           height={160}
           width={160}
