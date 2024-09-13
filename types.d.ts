@@ -33,4 +33,5 @@ interface DataMonitoringFirebase {
   beratDepan: number;
   beratBelakang: number;
   sessionStart: boolean;
+  deviceStart?: boolean;
 }

@@ -45,6 +45,16 @@ export default function StartSession({
   // const [number, setNumber] = useState(0);
   const [data, setData] = useState<DataRead[]>([]);
 
+  const SetDataFirebase = async () => {
+    const data = {
+      sudut: 0,
+      beratDepan: 0,
+      beratBelakang: 0,
+      sessionStart: true,
+    };
+    await set(ref(db, "dataNew"), data);
+  };
+
   const GetDataFirebase = async () => {
     const getdata = await get(ref(db, "dataNew"));
     if (getdata.exists()) {
@@ -108,6 +118,7 @@ export default function StartSession({
         isLoading={isLoading}
         setIsLoading={setIsLoading}
         setData={setData}
+        setDataFirebase={SetDataFirebase}
       />
       <div className=" flex items-center">
         <span className=" font-bold"> {isLoading.percentage}%</span>

@@ -65,6 +65,7 @@ export default function AddPasien({
   isLoading,
   setIsLoading,
   setData,
+  setDataFirebase,
 }: {
   className?: string;
   pasien: PasienData | null;
@@ -72,6 +73,7 @@ export default function AddPasien({
   isLoading: loadingProps;
   setIsLoading: (loading: loadingProps) => void;
   setData: (data: DataRead[]) => void;
+  setDataFirebase: () => void;
 }) {
   const [open, setOpen] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -89,6 +91,7 @@ export default function AddPasien({
     form.reset();
     setData([]);
     const norekam = generateCode();
+    setDataFirebase();
 
     try {
       setOpen(false);
