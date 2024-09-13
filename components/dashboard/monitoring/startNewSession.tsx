@@ -178,6 +178,13 @@ async function WriteData({
         message: "Data gagal disimpan",
       });
     }
+    const data = {
+      sudut: 0,
+      beratDepan: 0,
+      beratBelakang: 0,
+      sessionStart: false,
+    };
+    await set(ref(db, "dataNew"), data);
   } catch (error) {
     setIsLoading({
       state: "error",
