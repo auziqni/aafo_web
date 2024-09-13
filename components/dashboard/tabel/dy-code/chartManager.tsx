@@ -23,7 +23,7 @@ export default function ChartManager({
       {/* <div className="grid grid-cols-12 gap-6 "> */}
       <ChartSingle
         className="col-span-6  w-full"
-        tittle="Sudut"
+        tittle="Sudut (°)"
         dataname="sudut"
         dataset={dataset}
         min={-45}
