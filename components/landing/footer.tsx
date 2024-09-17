@@ -10,7 +10,7 @@ export default function FooterLanding() {
           target="_blank"
           className="hover:text-cyan-300"
         >
-          Teknisee
+          
         </a>
       </span>
     </footer>
